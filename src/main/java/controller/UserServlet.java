@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "UserServlet", urlPatterns = "/users")
+@WebServlet(name = "UserServlet", urlPatterns = "/user")
 public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static IUserDAO userDAO = new UserDAO();
@@ -43,7 +43,7 @@ public class UserServlet extends HttpServlet {
         if (user == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
-            request.setAttribute("users", user);
+            request.setAttribute("user", user);
             dispatcher = request.getRequestDispatcher("user/find.jsp");
         }
         try {
